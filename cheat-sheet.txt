@@ -13,3 +13,8 @@ kubectl set image deployment/airflow-web -n=airflow apache/airflow:1.10.11
 ## Get k8s nodes list from eks/k8's cluster and search for a specific label
 kubectl get nodes --show-labels
 kubectl get nodes --show-labels | grep appgroup
+
+# Look for pod logs
+kubectl logs --since=1h nginx
+kubectl logs -f rails -c nginx
+kubectl logs --tail=20 nginx
