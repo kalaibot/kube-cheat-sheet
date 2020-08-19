@@ -9,3 +9,7 @@ kubectl run testing-pod --image=kalaipm/utils
 
 ## set an image for the deployment using kubectl from command line
 kubectl set image deployment/airflow-web -n=airflow apache/airflow:1.10.11
+
+## Get k8s nodes list from eks/k8's cluster and search for a specific label
+kubectl get nodes --show-labels
+kubectl get nodes --show-labels | grep appgroup
