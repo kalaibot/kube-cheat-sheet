@@ -1,0 +1,7 @@
+## Adding a testing pod using kubectl and place node selector for those pods
+kubectl run testing-pod --image=kalaipm/telnet --namespace=airflow --serviceaccount=airflow --overrides='{"apiVersion": "v1", "spec": {"nodeSelector": { "appgroup": "data" }}}'
+## place a pod in default namespace
+kubectl run testing-pod --image=kalaipm/curl
+kubectl run testing-pod --image=kalaipm/ping
+kubectl run testing-pod --image=kalaipm/telnet
+kubectl run testing-pod --image=kalaipm/utils
