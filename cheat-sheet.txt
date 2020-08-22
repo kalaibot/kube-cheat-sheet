@@ -18,3 +18,7 @@ kubectl get nodes --show-labels | grep appgroup
 kubectl logs --since=1h nginx
 kubectl logs -f rails -c nginx
 kubectl logs --tail=20 nginx
+
+# kubectl scale replicas
+kubectl scale --replicas=3 deployment/flux -n=flux
+kubectl scale --current-replicas=2 --replicas=3 deployment/flux
