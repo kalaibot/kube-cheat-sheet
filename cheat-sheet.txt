@@ -22,3 +22,6 @@ kubectl logs --tail=20 nginx
 # kubectl scale replicas
 kubectl scale --replicas=3 deployment/flux -n=flux
 kubectl scale --current-replicas=2 --replicas=3 deployment/flux
+
+# kubectl delete pods forcefully
+kubectl delete pod <pod_name> -n <namespace> --grace-period 0 --force
