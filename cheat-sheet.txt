@@ -28,3 +28,7 @@ kubectl scale --current-replicas=2 --replicas=3 deployment/flux
 
 # kubectl delete pods forcefully
 kubectl delete pod <pod_name> -n <namespace> --grace-period 0 --force
+
+# get pods using selector labels
+kubectl get nodes --selector=appgroup!=data
+kubectl top nodes --selector=appgroup=data
