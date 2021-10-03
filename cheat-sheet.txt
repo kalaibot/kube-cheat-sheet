@@ -17,11 +17,14 @@ kubectl set image deployment/airflow-web -n=airflow apache/airflow:1.10.11
 kubectl get nodes --show-labels
 kubectl get nodes --show-labels | grep appgroup
 kubectl get pods -l role=frontend,environment=staging
-k get pods -l app=frontend,pod-template-hash=5cdfff87f9
-k get pods -l 'app in (frontend, rails, rails-consumer)'
+kubectl get pods -l app=frontend,pod-template-hash=5cdfff87f9
+kubectl get pods -l 'app in (frontend, rails, rails-consumer)'
 kubectl get pods -l 'role in (frontend, backend),environment in (production)'
 kubectl get pods -l 'role in (frontend, backend),environment notin (production)'
-k get pods  -l 'app!=frontend'
+kubectl get pods  -l 'app!=frontend'
+kubectl label pod nginx app=nginx-application
+kubectl label --overwrite pod nginx app=nginx-application
+
 
 # Look for pod logs
 kubectl logs --since=1h nginx
