@@ -1,5 +1,6 @@
 ## Adding a testing pod using kubectl and place node selector for those pods
-kubectl run testing-pod --image=kalaipm/telnet --namespace=airflow --serviceaccount=airflow --overrides='{"apiVersion": "v1", "spec": {"nodeSelector": { "appgroup": "data" }}}'
+kubectl run testing-pod --image=kalaipm/telnet --namespace=airflow --overrides='{"apiVersion": "v1", "spec": {"nodeSelector": { "appgroup": "data" }}}'
+kubectl run python-pod --image=python:3.8.16 --overrides='{"spec":{"serviceAccount": "jenkins-agent"}}'  -n=jenkins-agent --command -- sleep 10000
 
 ## Adding annotations to the pod using kubectl
 kubectl run utils-pod --image=kalaipm/utils --namespace=jupyter --overrides='{ "apiVersion": "v1","metadata":{"annotations":{"iam.amazonaws.com/role":"dev-redis"}}}'
